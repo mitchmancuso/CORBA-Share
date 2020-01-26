@@ -1,0 +1,37 @@
+ module Common {
+
+  typedef sequence<string> Strings;
+
+      interface ServerServant {
+
+        string login(in string username, in string hashedPassword);
+
+        string registerUser(in string username, in string hashedPassword);
+
+        string deleteUser(in string username, in string hashedPassword);
+
+        void registerFiles(in string username);
+
+        void clearSharedFiles(in string username);
+
+        void clearNotSharedFiles(in string username);
+
+        string getUserFromPort(in long port);
+
+        long getConnectionPort(in string username);
+
+        string getConnectionAddress(in string username);
+
+        void setConnectionAddress(in string username, in string address);
+
+        Strings viewAllSharedFiles();
+
+        string startFileShare(in string username, in string filename);
+
+        string stopFileShare(in string username, in string filename);
+
+        Strings findFile(in string filename);
+
+      };
+
+};
